@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record model="event.service" id="demo_service_1">
+        <field name="s_name">Catering</field>
+    </record>
+    <record model="event.service" id="demo_service_2">
+        <field name="s_name">Decorations</field>
+    </record>
+    <record model="event.service" id="demo_service_3">
+        <field name="s_name">Escort</field>
+    </record>
+</odoo>

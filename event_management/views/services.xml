@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="services_form" model="ir.ui.view">
+        <field name="name">event.service.form</field>
+        <field name="model">event.service</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                            <field name="s_name"/>
+                            <field name="res_person"/>
+                        </group>
+                    <notebook>
+                    <page>
+                            <field name="table_ids">
+                            <tree editable="bottom">
+                            <field name="s_details"/>
+                            <field name="quantity"/>
+                            <field name="price"/>
+                            <field name="sub_total"/>
+                        </tree>
+                        </field>
+                         <group name="note_group" col="6" class="mt-2 mt-md-0">
+                                <group colspan="4">
+                                </group>
+                                <group class="oe_subtotal_footer oe_right" colspan="2" name="amount_total">
+                                    <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                                        <label for="amount_total"/>
+                                    </div>
+                                    <field name="amount_total" nolabel="1" class="oe_subtotal_footer_separator" widget="monetary"/>
+                                </group>
+                                <div class="oe_clear"/>
+                            </group>
+                        </page>
+                </notebook>
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+    <record id="services_tree" model="ir.ui.view">
+        <field name="name">event.service.tree</field>
+        <field name="model">event.service</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="s_name"/>
+                <field name="res_person"/>
+            </tree>
+        </field>
+    </record>
+    <record id="event_service_action" model="ir.actions.act_window">
+        <field name="name">Event Services</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">event.service</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p>
+                Create Your First Service.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="event_management"
+              name="Event Management"
+              sequence="7"/>
+    <menuitem id="event_configuration_root"
+              name="Configuration"
+              parent="event_management"
+              sequence="7"/>
+    <menuitem id="event_services"
+              name="Services"
+              parent="event_configuration_root"
+              action="event_service_action"
+              sequence="2"/>
+
+</odoo>
+

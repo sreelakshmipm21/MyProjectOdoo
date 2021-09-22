@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record model="event.type" id="demo_type_1">
+        <field name="name">Birthday</field>
+        <field name="code">EV1</field>
+    </record>
+    <record model="event.type" id="demo_type_2">
+        <field name="name">Wedding</field>
+        <field name="code">EV2</field>
+    </record>
+    <record model="event.type" id="demo_type_3">
+        <field name="name">Anniversary</field>
+        <field name="code">EV3</field>
+    </record>
+    <record model="event.type" id="demo_type_4">
+        <field name="name">Inauguration</field>
+        <field name="code">EV4</field>
+    </record>
+</odoo>

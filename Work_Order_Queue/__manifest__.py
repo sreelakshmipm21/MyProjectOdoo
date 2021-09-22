@@ -1,0 +1,20 @@
+{
+    'name': 'Work Order Queue',
+    'version': '1.0',
+    'sequence': '-100',
+    'category': 'Productivity',
+    'description': """Work Order Queue""",
+    'depends': ['sale'],
+    'data': [
+             'security/ir.model.access.csv',
+              'views/mechine.xml',
+               'views/workorderqueue.xml',
+              'views/sale.xml',
+              'views/invoice.xml'],
+    'demo': [],
+    'test': [],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+    'license': 'LGPL-3',
+}

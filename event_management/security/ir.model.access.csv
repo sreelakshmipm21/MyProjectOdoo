@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_event_type,access_event.type,model_event_type,,1,1,1,1
+access_event_booking,access_event.booking,model_event_booking,,1,1,1,1
+access_event_service,access_event.service,model_event_service,,1,1,1,1
+access_service_table,access_service.table,model_service_table,,1,1,1,1
+access_event_catering,access_event.catering,model_event_catering,,1,1,1,1
+access_catering_menu,access_catering.menu,model_catering_menu,,1,1,1,1
+access_catering_table,access_catering.table,model_catering_table,,1,1,1,1
+access_booking_table,access_booking.table,model_booking_table,,1,1,1,1
+

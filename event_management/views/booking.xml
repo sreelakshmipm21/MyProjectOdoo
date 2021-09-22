@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="event_booking_form" model="ir.ui.view">
+        <field name="name">event.booking.form</field>
+        <field name="model">event.booking</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button id="button_catering" name="action_catering" class="btn-primary"
+                            string="Catering Service" type="object"
+                    context="{'default_event_id' : active_id }"/>
+                    <button id="button_booking_confirm" name="action_booking_confirm" class="btn-primary"
+                            string="Confirm" type="object"/>
+                                        <field name="state" widget="statusbar"/>
+
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="event_type"/>
+                            <field name="customer_id"
+                                   widget="res_partner_many2one"
+                                   context="{'res_partner_search_mode':
+                                   'customer','show_address':1}"
+                                   options="{&quot;always_reload&quot;: True}"/>
+                            <field name="event_date"/>
+                        </group>
+                        <group>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="time_duration"/>
+                        </group>
+                    </group>
+                    <notebook>
+                         <page string="Dishes" name="book_table">
+                            <field name="table_ids">
+                                <tree editable="bottom">
+                                    <field name="product_id"/>
+                               <field name="description"/>
+                               <field name="uom_id"/>
+                               <field name="quantity"/>
+                               <field name="price"/>
+                               <field name="sub_total"/>
+                                 </tree>
+                            </field>
+                        </page>
+
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="activity_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="event_booking_tree" model="ir.ui.view">
+        <field name="name">event.booking.tree</field>
+        <field name="model">event.booking</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="event_type"/>
+                <field name="customer_id" widget="res_partner_many2one"
+                       context="{'res_partner_search_mode': 'customer',
+                                  'show_address':1}"
+                       options="{&quot;always_reload&quot;: True}"/>
+                <field name="event_date"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="time_duration"/>
+            </tree>
+        </field>
+    </record>
+    <record id="event_booking_action" model="ir.actions.act_window">
+        <field name="name">Event Booking</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">event.booking</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p>
+                Create Your First Event Booking.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="event_management"
+              name="Event Management"
+              sequence="7"/>
+    <menuitem id="event_booking_root"
+              name="Event Booking"
+              parent="event_management"
+              action="event_booking_action"
+              sequence="7"/>
+
+
+</odoo>
+

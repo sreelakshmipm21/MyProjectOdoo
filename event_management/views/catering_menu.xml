@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="catering_menu_form" model="ir.ui.view">
+        <field name="name">catering.menu.form</field>
+        <field name="model">catering.menu</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="dish_name"/>
+                            <field name="category"/>
+                            <field name="image"/>
+                        </group>
+                        <group>
+                            <field name="uom_id"/>
+                            <field name="price"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="catering_menu_tree" model="ir.ui.view">
+        <field name="name">catering.menu.tree</field>
+        <field name="model">catering.menu</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="dish_name"/>
+                            <field name="category"/>
+                            <field name="image"/>
+                            <field name="uom_id"/>
+                            <field name="price"/>
+            </tree>
+        </field>
+    </record>
+    <record id="catering_menu_action" model="ir.actions.act_window">
+        <field name="name">Catering Menu</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">catering.menu</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p>
+                Create Your First Catering Menu.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="event_management"
+              name="Event Management"
+              sequence="7"/>
+    <menuitem id="event_configuration_root"
+              name="Configuration"
+              parent="event_management"
+              sequence="7"/>
+    <menuitem id="catering_menu"
+              name="Catering Menu"
+              parent="event_configuration_root"
+              action="catering_menu_action"
+              sequence="2"/>
+
+</odoo>
+

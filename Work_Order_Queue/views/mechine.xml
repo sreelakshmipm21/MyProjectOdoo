@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="machine_form" model="ir.ui.view">
+        <field name="name">work.machine.form</field>
+        <field name="model">work.machine</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="machine_tree" model="ir.ui.view">
+        <field name="name">work.machine.tree</field>
+        <field name="model">work.machine</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+    <record id="machine_action" model="ir.actions.act_window">
+        <field name="name">Machines</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">work.machine</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p>
+                Create Your First Machine.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="work_order_root"
+              name="Work Order Queue"
+              sequence="7"/>
+    <menuitem id="work_order_machine_root"
+              name="Machine"
+              parent="work_order_root"
+              sequence="7"/>
+    <menuitem id="work_order_machine"
+              name="Machine"
+              parent="work_order_machine_root"
+              action="machine_action"
+              sequence="2"/>
+
+</odoo>
